@@ -30,20 +30,37 @@
 			</style>
 			<p:growl showDetail="true" />
 
+			
 			<p:panelGrid columns="2" layout="grid" columnClasses="ui-grid-col-1,ui-grid-col-11"
-			styleClass="ui-panelgrid-blank ui-fluid" style="border:0px none; background-color:transparent;">
-				<p:outputLabel value="Nome:"/>
-				<p:inputText value="#{cadastroDepartamentoBean.departamento.nome}"
-					required="true" requiredMessage="O campo NOME não pode ficar em branco"/>
+				styleClass="ui-panelgrid-blank ui-fluid" style="border:0px none; background-color:transparent;">
+				<p:outputLabel value="Nome:" />
+				<p:inputText value="#{cadastroProdutoBean.produto.nome}" required="true"
+					requiredMessage="O campo NOME não pode ficar em branco" />
+
+				<p:outputLabel value="Fornecedor:" />
+				<p:selectOneMenu value="{cadastroFornecedorBean.fornecedor.departamento}" converter="ProdutoConverter">
+					<f:selectItem itemLabel="Selecione" noSelectionOption="true" itemDisabled="true" />
+					<f:selectItems value="#{cadastroFornecedorBean.todosDepartamentos}" var="depto" itemValue="#{dpto}"
+						itemLabel="#{depto.nome}" />
+				</p:selectOneMenu>
 
 			</p:panelGrid>
 
+
+			<!-- <p:panelGrid columns="2" layout="grid" columnClasses="ui-grid-col-1,ui-grid-col-11"
+			styleClass="ui-panelgrid-blank ui-fluid" style="border:0px none; background-color:transparent;">
+				<p:outputLabel value="Nome:"/>
+				<p:inputText value="#{cadastroProdutoBean.produto.nome}"
+					required="true" requiredMessage="O campo NOME não pode ficar em branco"/>
+
+			</p:panelGrid> -->
+
 			<p:commandButton icon="pi pi-save" value="Salvar" 
-			     actionListener="#{cadastroDepartamentoBean.salvar()}"
+			     actionListener="#{cadastroProdutoBean.salvar()}"
 				 process="@all" update="@form"/>
 			
 				 <p:button icon="pi pi-undo" value="Cancelar"
-				     outcome="consultadepartamentos" />
+				     outcome="consultaprodutos" />
 			
 		</h:form>
 

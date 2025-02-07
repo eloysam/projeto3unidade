@@ -9,7 +9,9 @@ import javax.faces.context.FacesContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.example.ifbademo.model.Fornecedor;
 import com.example.ifbademo.model.Produto;
+import com.example.ifbademo.service.FornecedorService;
 import com.example.ifbademo.service.ProdutoService;
 
 import lombok.Getter;
@@ -21,13 +23,18 @@ public class CadastroProdutoBean {
     @Getter @Setter
     private Produto produto = new Produto();
     @Getter
-    private ProdutoService prodService;
+    private List<Fornecedor> fornecedores;
+
     @Getter
-    private List<Produto> listDepartamentos;
+    private FornecedorService forService;
+    @Getter
+    private ProdutoService prodService;
+
 
     @PostConstruct
     public void init(){
-        listDepartamentos = prodService.buscarTodos();
+       fornecedores = forService.buscarTodos();
+       
     }
 
     public void salvar(){
@@ -40,6 +47,6 @@ public class CadastroProdutoBean {
     }
 
     public void preparaProduto(){
-       // produto = prodService.buscarPorId(produto.getId());
+       produto = prodService.buscarPorId(produto.getId());
     }
 }

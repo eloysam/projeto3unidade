@@ -28,8 +28,8 @@ public class ProdutoService {
         repPro.deleteById(id);
     }
 
-    public Optional<Produto> buscarPorId(Long id){
-        return repPro.findById(id);
+    public Produto buscarPorId(Long id){
+        return repPro.findById(id).get();
     }
 
     public List<Produto> buscarTodos(){
@@ -37,10 +37,10 @@ public class ProdutoService {
     }
 
     public void controlarEstoque(Long idProduto, int qtdRetirada) {
-        Optional<Produto> produtoOptional = buscarPorId(idProduto); // Busca o produto no repositório utilizando o id sfornecido e encapsula o resultado em um Optional
+        Produto produtoOptional = buscarPorId(idProduto); // Busca o produto no repositório utilizando o id sfornecido e encapsula o resultado em um Optional
 
-        if (produtoOptional.isPresent()) { // Verifica se o produto foi encontrado no Optional, o isPresente -> é usado em Java para verificar se um objeto encapsulado em um Optional está presente ou não retornando um valor bool
-            Produto produto = produtoOptional.get(); // Extrai o objeto Produto do Optional
+        if (produtoOptional != null) { // Verifica se o produto foi encontrado no Optional, o isPresente -> é usado em Java para verificar se um objeto encapsulado em um Optional está presente ou não retornando um valor bool
+            Produto produto = produtoOptional; // Extrai o objeto Produto do Optional
             int estoqueAtual = produto.getQtdProduto(); // Obtém a quantidade atual do produto em estoque
 
             if (estoqueAtual >= qtdRetirada) { // Verifica se há estoque suficiente para a quantidade a ser retirada
