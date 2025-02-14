@@ -56,6 +56,6 @@ public class CadastroVendaBean {
     }
 
     public void preparaVenda(){
-       // vendas = venService.buscarPorId(vendas.getId());
+       vendas = venService.buscarPorId(vendas.getId());
     }
 }

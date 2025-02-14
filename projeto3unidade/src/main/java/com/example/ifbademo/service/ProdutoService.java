@@ -23,9 +23,22 @@ public class ProdutoService {
         repPro.save(pro);
     }
 
-  /*   public boolean excluir(Long id){
-        repPro.deleteById(id);
-    }*/
+    public boolean excluir(Long id){
+        if (!produtoTemEntrada(id)) {
+            repPro.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean produtoTemEntrada(Long id) {
+        if (buscarPorId(id).getItens_entrada().isEmpty()){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     public Produto buscarPorId(Long id){
         return repPro.findById(id).get();
