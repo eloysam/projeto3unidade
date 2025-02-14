@@ -24,7 +24,7 @@ import lombok.*;
 public class CadastroVendaBean {
     
     @Getter
-    private Venda vendas = new Venda();
+    private Venda venda = new Venda();
 
     @Setter @Getter
     private VendaItens vendaItens;
@@ -48,14 +48,14 @@ public class CadastroVendaBean {
 
     public void salvar(){
         FacesContext cont = FacesContext.getCurrentInstance();
-        venService.salvar(vendas);
+        venService.salvar(venda);
 
-        vendas = new Venda();
+        venda = new Venda();
         FacesMessage messagem = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cadastro efetuado com sucesso!", "Venda cadastrada com sucesso!");
         cont.addMessage(null, messagem);
     }
 
-    public void preparaVenda(){
-       vendas = venService.buscarPorId(vendas.getId());
+    public void prepararCadastro(){
+       // venda = venService.buscarPorId(venda.getId());
     }
 }

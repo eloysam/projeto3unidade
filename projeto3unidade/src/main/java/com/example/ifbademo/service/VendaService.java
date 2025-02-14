@@ -29,9 +29,11 @@ public class VendaService {
         repVen.deleteById(id);
     }
 
-    public Optional<Venda> buscarPorId(Long id){ //serve para representar valores que podem estar presentes ou ausentes (nulos)
+    public boolean buscarPorId(Long id){ //serve para representar valores que podem estar presentes ou ausentes (nulos)
         return repVen.findById(id);
     }
+
+    
 
     public List<Venda> buscarTodos(){
         return repVen.findAll();

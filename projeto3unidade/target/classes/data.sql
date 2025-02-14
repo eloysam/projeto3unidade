@@ -1,7 +1,7 @@
--- insert into departamentos (nome) values ('TECNOLOGIA DA INFORMAÇÃO');
--- insert into departamentos (nome) values ('RECURSOS HUMANOS');
+insert into Fornecedor(endereco, nome, tipoDeProdutoFornecido, telefone, cnpj) values ('Rua Carlos Andrade', 'Aline Araújo', 'beleza', '77988562314', '455621');
+--insert into departamentos (nome) values ('RECURSOS HUMANOS');
 
---insert into cargos (nome, id_departamento_fk) values ('PROGRAMADOR JAVA JUNIOR',1);
+insert into Produto(categoria, nomeProduto, dataFabricacao, dataValidade, qtdProduto) values ('beleza','Shampoo', '2023-02-23', '2027-05-01', '45');
 --insert into cargos (nome, id_departamento_fk) values ('PROGRAMADOR JAVA SENIOR',1);
 --insert into cargos (nome, id_departamento_fk) values ('ENGENHEIRO DE SOFTWARE',1);
 --insert into cargos (nome, id_departamento_fk) values ('CONTADOR',2);
