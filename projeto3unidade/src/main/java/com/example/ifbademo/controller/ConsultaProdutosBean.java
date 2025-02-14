@@ -32,10 +32,10 @@ public class ConsultaProdutosBean {
         produtos = produtoService.buscarTodos();
     }
 
-    public void excluir(){
+   /*  public void excluir(){
         FacesContext context = FacesContext.getCurrentInstance();
 
-        if(produtoService.excluir(prodSelecionado.getId());){
+        if(produtoService.excluir(prodSelecionado.getId())){
             context.addMessage(null, new FacesMessage("Exclusão", "Produto excluído com sucesso."));
 
             produtos = produtoService.buscarTodos();
@@ -44,5 +44,5 @@ public class ConsultaProdutosBean {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro na exclusão.",
                     "Existe um produto vinculado a este fornecedor."));
         }
-    }
+    }*/
 }

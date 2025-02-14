@@ -23,9 +23,9 @@ public class ProdutoService {
         repPro.save(pro);
     }
 
-    public boolean excluir(Long id){
+  /*   public boolean excluir(Long id){
         repPro.deleteById(id);
-    }
+    }*/
 
     public Produto buscarPorId(Long id){
         return repPro.findById(id).get();

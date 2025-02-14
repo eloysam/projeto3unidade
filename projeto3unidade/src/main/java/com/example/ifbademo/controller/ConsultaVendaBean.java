@@ -39,8 +39,6 @@ public class ConsultaVendaBean {
     public void excluir(){
         FacesContext context = FacesContext.getCurrentInstance();
         
-        if(venService.excluir(venda.getId())){
-            
-        }
+       // if(venService.excluir(venda.getId())){}
     }
 }
