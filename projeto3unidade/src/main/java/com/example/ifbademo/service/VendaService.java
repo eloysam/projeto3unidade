@@ -30,10 +30,12 @@ public class VendaService {
     }
 
     public boolean buscarPorId(Long id){ //serve para representar valores que podem estar presentes ou ausentes (nulos)
-        return repVen.findById(id);
+       // return repVen.findById(id);
+       return true;
     }
 
     
+
 
     public List<Venda> buscarTodos(){
         return repVen.findAll();

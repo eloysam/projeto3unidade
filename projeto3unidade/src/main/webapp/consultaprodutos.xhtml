@@ -9,57 +9,54 @@ and open the template in the editor.
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <ui:composition template="/WEB-INF/template/Layout.xhtml">
 
-<!-- AQUI É APENAS UMA TELA. ELE NÃO FUNCIONA SEM UM BEAN -->
+	<!-- AQUI É APENAS UMA TELA. ELE NÃO FUNCIONA SEM UM BEAN -->
 
 	<ui:define name="titulo">Consulta de Produtos</ui:define>
 
 	<ui:define name="corpo">
 		<h:form>
-			<p:growl showDetail="true"/>
+			<p:growl showDetail="true" />
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:button icon="pi pi-plus" value="Novo" 
-					     outcome="cadastro" />
+					<p:button icon="pi pi-plus" value="Novo" outcome="cadastroproduto" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
-			<p:dataTable var="produto" value="#{consultaProdutoBean.produtos}" 
-						paginator="true" rows="10" 
-						paginatorPosition="bottom"
-						rowsPerPageTemplate="5,10,{ShowAll|'All'}" >
-				
-				<p:column headerText="Nome">
-					<h:outputText value="#{produto.nome}" />
+			<p:dataTable var="produto" value="#{consultaProdutosBean.produto}" paginator="true" rows="10"
+				paginatorPosition="bottom" rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+				<p:column headerText="Nome:">
+					<h:outputText value="#{produto.nomeProduto}" />
 				</p:column>
 
 				<p:column headerText="Fornecedor">
-					<h:outputText value="#{fornecedor.nome}" />
+					<h:outputText value="#{produto.fornecedor}" />
 				</p:column>
 
 
 				<p:column headerText="Ações">
 					<p:button title="Alterar" icon="pi pi-pencil" outcome="cadastro">
-						<f:param name="id" value="#{cargo.id}" />
+						<f:param name="id" value="#{produto.id}" />
 					</p:button>
-					<p:commandButton title="Excluir" icon="pi pi-trash"
-						process="@this" oncomplete="PF('deleteDialog').show()">
-						<f:setPropertyActionListener value="#{cargo}"
-							target="#{consultaCargoBean.cargoSelecionado}" />
+					<p:commandButton title="Excluir" icon="pi pi-trash" process="@this"
+						oncomplete="PF('deleteDialog').show()">
+						<f:setPropertyActionListener value="#{produto}"
+							target="#{consultaProdutoBean.prodSelecionado}" />
 					</p:commandButton>
 				</p:column>
 
 			</p:dataTable>
 
-			<p:confirmDialog widgetVar="deleteDialog" showEffect="fade" width="350"
-				message="Exclusão de Cargo?"  header="Confirmação" severity="warn">
-				<p:commandButton value="Sim" icon="pi pi-check" actionListener="#{consultaCargoBean.excluir()}"
+			<p:confirmDialog widgetVar="deleteDialog" showEffect="fade" width="350" message="Exclusão de Cargo?"
+				header="Confirmação" severity="warn">
+				<p:commandButton value="Sim" icon="pi pi-check" actionListener="#{consultaProdutoBean.excluir()}"
 					process="@this" update="@form" oncomplete="PF('deleteDialog').hide()" />
 				<p:commandButton value="Não" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
 					process="@this" update="@form" onclick="PF('deleteDialog').hide()" />
 			</p:confirmDialog>
 
-			
+
 		</h:form>
 	</ui:define>
 </ui:composition>

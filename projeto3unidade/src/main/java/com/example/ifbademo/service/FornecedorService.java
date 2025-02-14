@@ -26,8 +26,18 @@ public class FornecedorService {
         repCliFornecedor.save(cliF);
     }
 
-    public void excluir(Long id){
-        repCliFornecedor.deleteById(id);
+    public boolean excluir(Long id){
+       // repCliFornecedor.deleteById(id);
+       return true;
+    }
+
+    private boolean FornecedorTemProduto(Long id) {
+        /*if (buscarPorId(id).get().isEmpty()){
+            return false;
+        }else{
+            return true;
+        }*/
+        return true;
     }
 
     public Optional<Fornecedor> buscarPorId(Long id){
