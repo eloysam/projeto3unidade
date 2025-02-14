@@ -24,17 +24,17 @@ and open the template in the editor.
 				</p:toolbarGroup>
 			</p:toolbar>
 
-			<p:dataTable var="cargo" value="#{consultaCargoBean.cargos}" 
+			<p:dataTable var="produto" value="#{consultaProdutoBean.produtos}" 
 						paginator="true" rows="10" 
 						paginatorPosition="bottom"
 						rowsPerPageTemplate="5,10,{ShowAll|'All'}" >
 				
 				<p:column headerText="Nome">
-					<h:outputText value="#{cargo.nome}" />
+					<h:outputText value="#{produto.nome}" />
 				</p:column>
 
-				<p:column headerText="Departamento">
-					<h:outputText value="#{cargo.nome}" />
+				<p:column headerText="Fornecedor">
+					<h:outputText value="#{fornecedor.nome}" />
 				</p:column>
 
 

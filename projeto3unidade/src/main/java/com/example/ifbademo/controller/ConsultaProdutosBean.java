@@ -15,6 +15,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class ConsultaProdutosBean {
+
+    @Getter
+    private Produto produto = new Produto();
     @Getter
     private List<Produto> produtos;
 
@@ -32,7 +35,7 @@ public class ConsultaProdutosBean {
     public void excluir(){
         FacesContext context = FacesContext.getCurrentInstance();
 
-        if(produtoService.excluir(prodSelecionado.getId())){
+        if(produtoService.excluir(prodSelecionado.getId());){
             context.addMessage(null, new FacesMessage("Exclusão", "Produto excluído com sucesso."));
 
             produtos = produtoService.buscarTodos();
